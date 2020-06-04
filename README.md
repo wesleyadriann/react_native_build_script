@@ -1,7 +1,7 @@
 React Native Build Script
 =
 
-### 👨‍💻 Usage
+## 👨‍💻 Usage
 ### 💻 Sh script
 Insert script in react project folder and run
 ```sh
