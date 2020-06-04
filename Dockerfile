@@ -1,8 +1,7 @@
 FROM openjdk:8-slim
 
-RUN apt update
-
-RUN apt-get update
+RUN apt update && \
+    apt-get update
 
 RUN apt install curl -y
 
@@ -30,8 +29,12 @@ RUN npm install -g react-native-cli
 
 WORKDIR /app
 
-COPY . .
+COPY package.json .
 
 RUN npm install
 
-ENTRYPOINT cd android && ./gradlew assembleRelease
+COPY . .
+
+RUN chmod +x ./build.sh
+
+ENTRYPOINT ["sh", "./build"]
